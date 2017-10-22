@@ -12,11 +12,9 @@ public class insert {
     {
         cnn = connection.getconnect();
     }
-    public void themnguoidung(String check,String a, String b, String c, String d,String e, String f,String g, String h,String i, String o, String p, String l)
+    public void themgiaovien(String a, String b, String c, String d,String e, String f,String g, String h,String i, String o, String p, String l)
     {
 
-        if(check.equalsIgnoreCase("giaovien"))
-        {
             try{
             PreparedStatement pst = cnn.prepareStatement("Insert nguoidung values (?,?,?,?,?,?,?,?,?,?,?,?)");
             pst.setString(1, a); //id
@@ -45,22 +43,21 @@ public class insert {
             {
                 JOptionPane.showMessageDialog(null, "ID Tồn Tại", "Error Message", JOptionPane.ERROR_MESSAGE);
             }
-        }
-        else if(check.equalsIgnoreCase("sinhvien"))
-        {
-            try{
+    }
+       public void themsinhvien(String a,String b, String c, String d, String e, String f, String g, String h, String i,String l)
+       { try{
             PreparedStatement pst = cnn.prepareStatement("Insert nguoidung values (?,?,?,?,?,?,?,?,?,?,?,?)");
             pst.setString(1, a); //id
             pst.setString(2, b); //id coso
             pst.setString(3, c); //ten
             pst.setString(4, d); //ngaysinh
             pst.setString(5, e); //gioitinh
-            pst.setString(6, f); //hocvan
-            pst.setString(7, g); // chucvu
-            pst.setString(8, h); //diachi
-            pst.setString(9, i); //sdt
-            pst.setString(10, o); //email
-            pst.setString(11, p); //tendangnhap
+            pst.setString(6, "sinhvien"); //hocvan
+            pst.setString(7, "sinhvien"); // chucvu
+            pst.setString(8, f); //diachi
+            pst.setString(9, g); //sdt
+            pst.setString(10, h); //email
+            pst.setString(11, i); //tendangnhap
             pst.setString(12, l); //matkhau default password
             int n = pst.executeUpdate();
             if(n!=0){
@@ -77,7 +74,6 @@ public class insert {
                 JOptionPane.showMessageDialog(null, "ID Tồn Tại", "Error Message", JOptionPane.ERROR_MESSAGE);
             }
         }
-    }
     
     // them mon
     public void themcoso(String a, String b)
